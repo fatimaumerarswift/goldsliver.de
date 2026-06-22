@@ -7,8 +7,8 @@ export default function page() {
   return (
     <>
       <CoinsHero />
-      <CoinCards />
       <CoinsUpdates/>
+      <CoinCards />
       <Email />
     </>
   );

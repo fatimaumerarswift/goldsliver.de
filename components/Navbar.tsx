@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, Menu, X } from "lucide-react";
@@ -30,7 +30,29 @@ const categories = [
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const searchInputRef = useRef<HTMLInputElement>(null);
   const pathname = usePathname();
+
+  // Auto-focus input when search opens
+  useEffect(() => {
+    if (searchOpen) {
+      searchInputRef.current?.focus();
+    }
+  }, [searchOpen]);
+
+  // Close search on Escape key
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setSearchOpen(false);
+        setSearchQuery("");
+      }
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
 
   return (
     <header className="w-full bg-black sticky top-0 z-50">
@@ -48,27 +70,58 @@ export default function Navbar() {
               GoldSilver.de
             </Link>
           </div>
-          {/* Price Tickers */}
-          <div className="hidden md:flex items-center gap-5 lg:gap-8">
-            {prices.map((item) => (
-              <div key={item.label} className="flex items-center gap-1 whitespace-nowrap">
-                <span className={`${jetbrainsMono.className} text-white text-xs lg:text-sm`}>
-                  {item.label}:
-                </span>
-                <span
-                  className={`${jetbrainsMono.className} text-xs lg:text-sm ${
-                    item.isPositive ? "text-emerald-400" : "text-red-400"
-                  }`}
-                >
-                  {item.value} {item.change}
-                </span>
-              </div>
-            ))}
-          </div>
+
+          {/* Price Tickers — hidden when search is open */}
+          {!searchOpen && (
+            <div className="hidden md:flex items-center gap-5 lg:gap-8">
+              {prices.map((item) => (
+                <div key={item.label} className="flex items-center gap-1 whitespace-nowrap">
+                  <span className={`${jetbrainsMono.className} text-white text-xs lg:text-sm`}>
+                    {item.label}:
+                  </span>
+                  <span
+                    className={`${jetbrainsMono.className} text-xs lg:text-sm ${
+                      item.isPositive ? "text-emerald-400" : "text-red-400"
+                    }`}
+                  >
+                    {item.value} {item.change}
+                  </span>
+                </div>
+              ))}
+            </div>
+          )}
+
+          {/* Expanded Search Bar (desktop) */}
+          {searchOpen && (
+            <div className="hidden md:flex flex-1 mx-6 items-center border border-gray-600 rounded-lg overflow-hidden">
+              <Search size={16} className="text-gray-400 ml-3 shrink-0" />
+              <input
+                ref={searchInputRef}
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Search articles, topics..."
+                className={`${inter.className} bg-transparent text-white text-sm px-3 py-2 w-full outline-none placeholder-gray-500`}
+              />
+              <button
+                onClick={() => {
+                  setSearchOpen(false);
+                  setSearchQuery("");
+                }}
+                className="text-gray-400 hover:text-white transition-colors pr-3"
+              >
+                <X size={16} />
+              </button>
+            </div>
+          )}
+
+          {/* Right Actions */}
           <div className="w-[140px] flex items-center justify-end gap-3">
+            {/* Search toggle button */}
             <button
               aria-label="Search"
-              className="text-white hover:text-[#FDE99A] transition-colors"
+              onClick={() => setSearchOpen(!searchOpen)}
+              className={`transition-colors ${searchOpen ? "text-[#FDE99A]" : "text-white hover:text-[#FDE99A]"}`}
             >
               <Search size={18} />
             </button>
@@ -87,6 +140,7 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
+
       {/* Category Nav */}
       <nav className="hidden md:block border-b border-gray-800 px-6 py-2">
         <div className="max-w-7xl mx-auto flex items-center justify-center gap-4 lg:gap-8 flex-wrap">
@@ -108,8 +162,31 @@ export default function Navbar() {
           })}
         </div>
       </nav>
+
+      {/* Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-black border-b border-gray-800 px-6 py-4 flex flex-col gap-4">
+
+          {/* Mobile Search Bar */}
+          <div className="flex items-center border border-gray-600 rounded-lg overflow-hidden">
+            <Search size={16} className="text-gray-400 ml-3 shrink-0" />
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="Search articles, topics..."
+              className={`${inter.className} bg-transparent text-white text-sm px-3 py-2 w-full outline-none placeholder-gray-500`}
+            />
+            {searchQuery && (
+              <button
+                onClick={() => setSearchQuery("")}
+                className="text-gray-400 hover:text-white transition-colors pr-3"
+              >
+                <X size={16} />
+              </button>
+            )}
+          </div>
+
           <div className="flex flex-col gap-2">
             {prices.map((item) => (
               <div key={item.label} className="flex items-center gap-2">
@@ -126,7 +203,9 @@ export default function Navbar() {
               </div>
             ))}
           </div>
+
           <div className="border-t border-gray-800" />
+
           <div className="flex flex-col gap-3">
             {categories.map((category) => {
               const isActive = pathname === category.href;
@@ -146,13 +225,14 @@ export default function Navbar() {
               );
             })}
           </div>
+
           <div className="border-t border-gray-800" />
+
           <button
             className={`${inter.className} w-full text-[#B8860B] border border-[#B8860B] rounded-lg px-3 py-2 text-sm hover:bg-[#B8860B] hover:text-black transition-colors duration-200`}
           >
             Subscribe
           </button>
-
         </div>
       )}
 

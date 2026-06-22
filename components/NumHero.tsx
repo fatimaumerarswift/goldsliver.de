@@ -15,7 +15,7 @@ export default function NumHero() {
       <div className="bg-white px-4 py-6">
         <div className="relative overflow-hidden rounded-xl h-[260px] sm:h-[320px] md:h-[380px] lg:h-[450px]">
           <Image
-            src="/Rectangle -9.png"
+            src="/Rectangle 7.png"
             alt="Gold bars background"
             fill
             className="object-cover sm:w-2xl"
@@ -25,18 +25,18 @@ export default function NumHero() {
           {/* text content */}
           <div className="absolute inset-0 flex flex-col justify-center px-6 md:px-12">
             <span className={` ${inter.className} inline-block bg-[#B8860B] text-black text-xs md:text-sm px-3 py-1 rounded-md w-fit mb-3 font-bold`}>
-             Coins & Bars
+             Numismatics
             </span>
 
             <h1 className={`${playfair.className} text-white text-xl md:text-3xl font-bold leading-snug`}>
-              Physical Bullion Remains
+              Heritage Numismatics &
             </h1>
             <h1 className={`${playfair.className} text-white text-xl md:text-3xl font-bold leading-snug`}>
-              A Trusted Store of Value
+            Antique Coin Collecting
             </h1>
 
             <p className={`${inter.className} text-white text-xs md:text-sm mt-2 max-w-sm`}>
-              Follow market trends, pricing insights, and investment opportunities in precious metals.
+              Discover antique coins, historical treasures,and collectible rarities valued for their history, rarity, and cultural significance.
             </p>
           </div>
         </div>

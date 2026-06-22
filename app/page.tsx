@@ -1,7 +1,7 @@
 
-import Latest from "@/app/components/Latest";
-import Email from "@/app/components/Email";
-import Hero from "@/app/components/Hero";
+import Latest from "@/components/Latest";
+import Email from "@/components/Email";
+import Hero from "@/components/Hero";
 
 export default function Home() {
   return (

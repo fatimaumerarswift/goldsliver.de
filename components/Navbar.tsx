@@ -180,7 +180,7 @@ export default function Navbar() {
           )}
 
           {/* Right Actions */}
-          <div className="flex items-center gap-2 md:gap-3 shrink-0">
+          <div className="flex items-center gap-3 md:gap-5 shrink-0">
 
             {/* EN / DE */}
             <div className="flex items-center border border-gray-700 rounded-lg overflow-hidden">

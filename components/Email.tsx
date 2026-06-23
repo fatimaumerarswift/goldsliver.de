@@ -1,10 +1,37 @@
+"use client"
 import Image from "next/image";
+import { useLang } from "@/components/uselang";
 import { Playfair_Display, Inter } from "next/font/google";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const inter = Inter({ subsets: ["latin"] });
 
+const content = {
+  en: {
+    title1a: "Discover the ",
+    title1b: "Finest Investments",
+    title1c: " Inspired",
+    title2: "by the Strength of Gold & Silver",
+    desc1: "Daily market intelligence delivered with editorial precision. Join 45,000+",
+    desc2: "elite investors.",
+    placeholder: "name@email.com",
+    button: "Subscribe",
+  },
+  de: {
+    title1a: "Entdecken Sie die ",
+    title1b: "Besten Investments",
+    title1c: " Inspiriert",
+    title2: "von der Stärke von Gold & Silber",
+    desc1: "Tägliche Marktanalysen mit redaktioneller Präzision. Schließen Sie sich 45.000+",
+    desc2: "Elite-Investoren an.",
+    placeholder: "name@email.com",
+    button: "Abonnieren",
+  },
+};
+
 export default function Email() {
+  const lang = useLang();
+  const t = content[lang];
   return (
     <section className=" max-w-full bg-[#1A1A1A] text-white relative">
 
@@ -23,15 +50,15 @@ export default function Email() {
       {/* Heading */}
       <div className="max-w-3xl mx-auto px-6 text-center">
         <h1 className={`${playfair.className} text-2xl md:text-4xl font-bold leading-snug`}>
-          Discover the Finest Investments Inspired
+          {t.title1a}<span className="text-[#B8860B]">{t.title1b}</span>{t.title1c}
         </h1>
         <h1 className={`${playfair.className} text-2xl md:text-4xl font-bold leading-snug mb-4`}>
-          by the Strength of Gold &amp; Silver
+          {t.title2}
         </h1>
         <p className={`${inter.className} text-sm text-gray-300 leading-relaxed`}>
-          Daily market intelligence delivered with editorial precision. Join 45,000+
+          {t.desc1}
           <br />
-          elite investors.
+          {t.desc2}
         </p>
       </div>
 
@@ -39,13 +66,13 @@ export default function Email() {
       <div className="flex flex-wrap gap-3 justify-center mt-6 mb-4">
         <input
           type="email"
-          placeholder="name@email.com"
+          placeholder={t.placeholder}
           className={`${inter.className} bg-white text-black text-sm rounded-md px-4 py-2 w-60 outline-none`}
         />
         <button
           className={`${inter.className} bg-[#B8860B] text-white text-sm font-semibold rounded-md px-6 py-2 hover:bg-[#a07608] transition-colors duration-200`}
         >
-          Subscribe
+          {t.button}
         </button>
       </div>
 

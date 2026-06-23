@@ -134,9 +134,9 @@ export default function Latest() {
 
       <div className="flex justify-center mt-12">
         <button
-          className="text-[#B8860B] text-3xl underline font-semibold  rounded-md px-6 py-2
-                     hover:bg-[#B8860B] hover:text-black hover:no-underline
-                     transition-colors duration-200"
+          className="text-[#B8860B] text-3xl underline underline-offset-4 decoration-2 font-semibold rounded-md px-6 py-2
+             hover:bg-[#B8860B] hover:text-black hover:no-underline
+             transition-colors duration-200"
         >
           {t.browseAll}
         </button>

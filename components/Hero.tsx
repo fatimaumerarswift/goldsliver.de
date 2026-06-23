@@ -123,7 +123,7 @@ export default function Hero() {
         <div
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
-          className="relative rounded-md overflow-hidden h-[300px] sm:h-80 md:h-[340px] cursor-pointer box-border transition-colors duration-300 order-1 md:order-2"
+          className="relative rounded-md overflow-hidden h-[300px] sm:h-80 md:h-[350px] cursor-pointer box-border transition-colors duration-300 order-1 md:order-2"
           style={{ border: hover ? "2px solid #B8860B" : "2px solid transparent" }}
         >
           <img

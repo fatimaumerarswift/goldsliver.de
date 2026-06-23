@@ -33,23 +33,23 @@ export default function Email() {
   const lang = useLang();
   const t = content[lang];
   return (
-    <section className=" max-w-full bg-[#1A1A1A] text-white relative">
+    <section className=" max-w-full bg-[#1A1A1A] text-white overflow-hidden">
 
-      {/* Top image */}
-      <div className="relative py-8 flex w-full px-12 absolute md:left-[190px]">
+      {/* sliver */}
+      <div className="my-4 py-8 flex justify-end mr-50 ">
         <Image
-          src="/Group 1000002102.png"
+          src="/sliverbar.png"
           alt="Decorative"
-          width={140}
-          height={140}
-          className="ml-auto mr-[10%] "
-          
+          width={130}
+          height={130}
+          className=""
         />
       </div>
 
       {/* Heading */}
+      <div className="-mt-18">   
       <div className="max-w-3xl mx-auto px-6 text-center">
-        <h1 className={`${playfair.className} text-2xl md:text-4xl font-bold leading-snug`}>
+        <h1 className={`${playfair.className} text-2xl md:text-4xl font-bold leading-snug `}>
           {t.title1a}<span className="text-[#B8860B]">{t.title1b}</span>{t.title1c}
         </h1>
         <h1 className={`${playfair.className} text-2xl md:text-4xl font-bold leading-snug mb-4`}>
@@ -60,6 +60,7 @@ export default function Email() {
           <br />
           {t.desc2}
         </p>
+      </div>
       </div>
 
       {/* Input + Subscribe */}
@@ -74,15 +75,16 @@ export default function Email() {
         >
           {t.button}
         </button>
-      </div>
+      </div> 
 
-      {/* Bottom image — centered */}
-      <div className="flex justify-start max-w-3xl pt-4 pb-10 px-12">
+      {/* Bottom image */}
+      <div className="flex w-full justify-start pb-10 px-12 md:pl-16 lg:pl-46 ml-7 ">
         <Image
-          src="/Group 1000002103.png"
+          src="/goldenbar.png"
           alt="Decorative"
-          width={140}
-          height={140}
+          width={130}
+          height={130}
+          className=""
         />
       </div>
 

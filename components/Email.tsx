@@ -33,15 +33,15 @@ export default function Email() {
   const lang = useLang();
   const t = content[lang];
   return (
-    <section className=" max-w-full bg-[#1A1A1A] text-white overflow-hidden"
-    style={{
-        backgroundColor: "#1A1A1A",
-        backgroundImage:
-            "linear-gradient(to bottom, rgba(184,134,11,0.15), transparent 35%), radial-gradient(circle at bottom right, rgba(184,134,11,0.15), transparent 40%)",
-        // backgroundAttachment: "fixed"
-      }}
-    >
-
+  <section
+  className="relative max-w-full bg-[#1A1A1A] text-white overflow-hidden"
+  style={{
+    backgroundColor: "#1A1A1A",
+    backgroundImage:
+      "linear-gradient(to bottom, rgba(184,134,11,0.15), transparent 35%), linear-gradient(circle at bottom right, rgba(184,134,11,0.15), transparent 40%)",
+    // backgroundAttachment: "fixed",
+  }}
+>
       {/* sliver */}
       <div className="my-4 py-8 flex justify-end mr-50 ">
         <Image
@@ -71,7 +71,7 @@ export default function Email() {
       </div>
 
       {/* Input + Subscribe */}
-      <div className="flex flex-wrap gap-3 justify-center mt-6 mb-4">
+      <div className="flex flex-wrap gap-3 justify-center mt-10 mb-4">
         <input
           type="email"
           placeholder={t.placeholder}

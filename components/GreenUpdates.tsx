@@ -109,7 +109,7 @@ export default function GreenUpdates() {
                         {p.label}
                       </span>
                       <div className="text-right">
-                        <p className={`${jetbrainsMono.className} text-sm sm:text-base font-semibold`}>
+                        <p className={`${jetbrainsMono.className} text-[#B8860B] text-sm sm:text-base font-semibold`}>
                           {p.value}
                         </p>
                         <p

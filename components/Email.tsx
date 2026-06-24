@@ -34,11 +34,11 @@ export default function Email() {
   const t = content[lang];
   return (
   <section
-  className="relative max-w-full text-white overflow-hidden"
+  className="max-w-full bg-[#1A1A1A] text-white overflow-auto"
   style={{
     backgroundColor: "#1A1A1A",
     backgroundImage:
-      "linear-gradient(to bottom, rgba(184,134,11,0.15), transparent 35%), linear-gradient(circle at bottom right, rgba(184,134,11,0.15), transparent 40%)",
+      "linear-gradient(to bottom, rgba(184,134,11,0.15), transparent 35%), radial-gradient(circle at bottom right, rgba(184,134,11,0.15), transparent 40%)",
     // backgroundAttachment: "fixed",
   }}
 >

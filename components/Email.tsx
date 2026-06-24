@@ -34,7 +34,7 @@ export default function Email() {
   const t = content[lang];
   return (
   <section
-  className="relative max-w-full bg-[#1A1A1A] text-white overflow-hidden"
+  className="relative max-w-full text-white overflow-hidden"
   style={{
     backgroundColor: "#1A1A1A",
     backgroundImage:

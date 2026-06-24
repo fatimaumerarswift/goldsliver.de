@@ -35,13 +35,13 @@ const content = {
     subtext: "Schauen Sie ausgewählte Bildungsinhalte über Gold, Silber, Markttrends und Anlagestrategien.",
     cards: [
       {
-        image: "/img1.png",
+        image: "/gold.png",
         title: "Pro Gold",
         desc: "Die besten YouTube-Videos über Goldinvestitionen, Barrenmärkte und Vermögenserhalt.",
         link: "https://www.youtube.com/shorts/ZDDMOpBBQZ4",
       },
       {
-        image: "/img2.png",
+        image: "/silverr.png",
         title: "Pro Silber",
         desc: "Die besten YouTube-Videos über Silberinvestitionen, Industrienachfrage und Marktchancen.",
         link: "https://www.youtube.com/shorts/ZDDMOpBBQZ4",

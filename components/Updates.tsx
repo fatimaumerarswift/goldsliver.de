@@ -13,7 +13,7 @@ const cards = [
     badgeColor: "bg-green-500 hover:bg-green-700",
     title: "Central Banks Accelerate Gold Accumulation\nAmid Global Uncertainty",
     desc: "Institutional demand for physical gold bars reaches a decade high as global reserve diversification becomes a strategic priority for...",
-    image: "/card4.jpg"
+    image: "/card1.png"
   },
   {
     name: "PHYSICAL MARKET",
@@ -22,7 +22,7 @@ const cards = [
     badgeColor: "bg-green-500 hover:bg-green-700",
     title: "Central Banks Accelerate Gold Accumulation\nAmid Global Uncertainty",
     desc: "Institutional demand for physical gold bars reaches a decade high as global reserve diversification becomes a strategic priority for...",
-    image: "/card4.jpg"
+    image: "/card1.png"
   },
   {
     name: "PHYSICAL MARKET",
@@ -31,7 +31,7 @@ const cards = [
     badgeColor: "bg-green-500 hover:bg-green-700",
     title: "Central Banks Accelerate Gold Accumulation\nAmid Global Uncertainty",
     desc: "Institutional demand for physical gold bars reaches a decade high as global reserve diversification becomes a strategic priority for...",
-    image: "/card4.jpg"
+    image: "/card1.png"
   },
 ]
 
@@ -70,7 +70,7 @@ export default function Updates() {
                   </div>
 
                   {/* Content row — image beside text, stacks on mobile */}
-                  <div className="flex flex-col sm:flex-row items-start gap-4">
+                  <div className="flex flex-col sm:flex-row items-start gap-8">
                     {/* Text */}
                     <div className="flex flex-col gap-2 flex-1 min-w-0">
                       <h2 className={`${playfair.className} font-bold leading-snug text-xl sm:text-2xl whitespace-pre-line`}>
@@ -85,16 +85,15 @@ export default function Updates() {
                       <Image
                         src={card.image}
                         alt={card.title}
-                        width={100}
-                        height={0}
-                        className="rounded-md object-cover w-full sm:w-[100px]"
+                        width={200}
+                        height={200}
+                        className="rounded-md md:w-[200px] sm:w-[100px]"
                       />
                     </div>
                   </div>
                 </div>
               ))}
             </div>
-
             {/* right side - Live Prices */}
             <div className="w-full max-w-[320px] my-8">
               <div className="bg-[#eeeeee] border border-[#E8DEC8] rounded-md p-5 lg:top-6">
@@ -114,10 +113,10 @@ export default function Updates() {
                         </p>
                         <p
                           className={`${jetbrainsMono.className} text-xs ${p.up === true
-                              ? "text-green-600"
-                              : p.up === false
-                                ? "text-red-500"
-                                : "text-gray-500"
+                            ? "text-green-600"
+                            : p.up === false
+                              ? "text-red-500"
+                              : "text-gray-500"
                             }`}
                         >
                           {p.up === true ? "▲ " : p.up === false ? "▼ " : ""}

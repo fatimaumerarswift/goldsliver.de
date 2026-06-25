@@ -269,19 +269,6 @@ export default function Navbar() {
       {menuOpen && (
         <div className="md:hidden bg-black border-b border-gray-800 px-5 py-4 flex flex-col gap-4">
 
-          {/* Live tickers */}
-          <div className="grid grid-cols-3 gap-2">
-            {tickers.map((item) => (
-              <div key={item.label} className="flex flex-col items-center bg-gray-900 rounded-lg py-2 px-1">
-                <span className={`${jetbrainsMono.className} text-gray-400 text-[10px]`}>{item.label}</span>
-                <span className={`${jetbrainsMono.className} text-xs font-semibold ${item.isPositive ? "text-emerald-400" : "text-red-400"}`}>{item.value}</span>
-                <span className={`${jetbrainsMono.className} text-[10px] ${item.isPositive ? "text-emerald-400" : "text-red-400"}`}>{item.change}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="border-t border-gray-800" />
-
           {/* Categories collapsible */}
           <div>
             <button

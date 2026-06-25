@@ -43,7 +43,7 @@ export default function Emails() {
   }}
 >
       {/* sliver */}
-      <div className="my-4 py-8 flex justify-end mr-30 ">
+      <div className="hidden md:flex my-4 py-8 justify-end mr-30">
         <Image
           src="/sliverbar.png"
           alt="Decorative"
@@ -54,15 +54,15 @@ export default function Emails() {
       </div>
 
       {/* Heading */}
-      <div className="-mt-18">   
+      <div className="mt-10 md:-mt-18">   
       <div className="max-w-3xl mx-auto  text-center">
         <h1 className={`${playfair.className} tracking-wider text-2xl md:text-4xl font-extrabold leading-snug `}>
           {t.title1a}<span className="text-[#F7BD48]">{t.title1b}</span>{t.title1c}
         </h1>
-        <h1 className={`${playfair.className} tracking-wider text-2xl md:text-4xl font-extrabold leading-snug mb-4`}>
+        <h1 className={`${playfair.className} tracking-wider ml-2 text-2xl md:text-4xl font-extrabold leading-snug mb-4`}>
           {t.title2}
         </h1>
-        <p className={`${inter.className} text-lg text-gray-300 leading-relaxed`}>
+        <p className={`${inter.className} ml-2 text-lg text-gray-300 leading-relaxed`}>
           {t.desc1}
           <br />
           {t.desc2}
@@ -85,7 +85,7 @@ export default function Emails() {
       </div> 
 
       {/* Bottom image */}
-      <div className="flex w-full justify-start pb-10 px-12 md:pl-16 lg:pl-30 ">
+      <div className="hidden md:flex w-full justify-start pb-10 px-12 md:pl-16 lg:pl-30">
         <Image
           src="/goldenbar.png"
           alt="Decorative"

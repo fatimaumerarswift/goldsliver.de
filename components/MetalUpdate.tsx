@@ -96,7 +96,7 @@ export default function MetalUpdates() {
             </div>
 
             {/* right side - Live Prices */}
-            <div className="w-full max-w-[320px] my-8">
+            <div className="w-full max-w-[320px] mx-auto my-8 px-4 sm:px-0">
               <div className="bg-[#eeeeee] border  border-[#E8DEC8] rounded-md p-5 lg:top-6">
                 <h3 className={`${playfair.className} flex items-center gap-2 text-lg font-bold mb-4`}>
                   <span className="text-[#B8860B]">▣</span> Live Prices

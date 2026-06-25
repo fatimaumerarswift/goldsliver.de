@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { Playfair_Display, JetBrains_Mono, Inter } from "next/font/google";
 import { useLang } from "@/components/uselang";
+import PriceTickerBar from "@/components/PriceTracker";
 
 const playfair = Playfair_Display({ subsets: ["latin"] });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"] });
@@ -67,29 +68,7 @@ export default function TechHero() {
 </div>
 
       {/* Price Bar */}
-      <div className="w-full bg-black flex flex-wrap items-center gap-4 py-4 px-4">
-        {prices.map((item, i) => (
-          <>
-            {i === 4 && (
-              <div key="divider" className="hidden md:block h-6 w-[2px] bg-[#B8860B] rounded-md" />
-            )}
-            <div key={i} className="flex items-center gap-1">
-              <span className={`${jetbrainsMono.className} text-white text-xs md:text-sm`}>
-                {item.label}:
-              </span>
-              <span className={`${jetbrainsMono.className} text-xs md:text-sm ${
-                item.isPositive === true
-                  ? "text-emerald-500"
-                  : item.isPositive === false
-                  ? "text-red-500"
-                  : "text-white"
-              }`}>
-                {item.value}
-              </span>
-            </div>
-          </>
-        ))}
-      </div>
+     <PriceTickerBar/>
     </>
   );
 }
